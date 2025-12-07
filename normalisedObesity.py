@@ -36,6 +36,13 @@ df['MTRANS'] = df['MTRANS'].map(mapping)
 mapping = {"Insufficient_Weight":0, "Normal_Weight":1, "Overweight_Level_I":2, "Overweight_Level_II":3, "Obesity_Type_I":4, "Obesity_Type_II":5, "Obesity_Type_III":6}
 df['NObeyesdad'] = df["NObeyesdad"].map(mapping)
 
+#tambah kolom bmi
+df['BMI'] = df['Weight']/(df['Height']**2)
+
+bins = [0, 18.5, 25, 27.5, 30, 35, 40, 100]
+labels = [0, 1, 2, 3, 4, 5, 6]
+df["BMI"] = pd.cut(df["BMI"], bins=bins, labels=labels)
+
 df['Age'] = df['Age'].astype(int)
 df['FCVC'] = df['FCVC'].astype(int)
 df['NCP'] = df['NCP'].astype(int)
@@ -43,5 +50,6 @@ df['CH2O'] = df['CH2O'].astype(int)
 df['FAF'] = df['FAF'].astype(int)
 df['TUE'] = df['TUE'].astype(int)
 
+df['cek'] = df["BMI"]==df["NObeyesdad"]
 
 df.to_csv("normalizedObesity.csv", index=False)
