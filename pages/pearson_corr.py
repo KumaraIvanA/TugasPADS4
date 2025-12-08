@@ -3,7 +3,7 @@ import pandas as pd
 from scipy.stats import chi2_contingency
 import numpy as np
 import plotly.express as px
-df_norm = pd.read_csv("assets/normalizedObesity.csv")
+df_norm = pd.read_csv("assets/normalizedDataset.csv")
 df_norm["BMI"]=df_norm["Weight"]/(df_norm["Height"]**2)
 target_cols = [
     "Age", 
