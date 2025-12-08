@@ -2,19 +2,21 @@ import streamlit as st
 import pandas as pd
 from utils import ChiSquareTest, PearsonTest
 
-df = pd.read_csv("./assets/cleanedDataset.csv")
+df = pd.read_csv("./assets/normalizedDataset.csv")
 
 params: dict[str, str] = {
-    "MTRANS": "Transportation used",
-    "CALC": "Consumption of alcohol",
+    "FCVC": "Frequency of consumption of vegetables",
+    "NCP": "Number of main meals",
     "CAEC": "Consumption of food between meals",
-    "FCVC": "Frequency of consumption of vegetables"
+    "CH2O": "Consumption of water daily",
+    "FAF": "Physical activity frequency",
+    "TUE": "Time using technology devices",
+    "CALC": "Consumption of alcohol",
+    "MTRANS": "Transportation used",
 }
 
 st.subheader("Pearson test")
-pt: PearsonTest = PearsonTest(
-    df[["Age", "Height", "Weight", "FCVC", "NCP", "CH2O", "FAF", "TUE", "BMI"]]
-)
+pt: PearsonTest = PearsonTest(df[["Age", "BMI"]])
 st.plotly_chart(pt.figure)
 
 
