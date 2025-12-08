@@ -20,7 +20,7 @@ ncp_map={
     4: "More than three"
 }
 df["NCP"] = pd.to_numeric(df["NCP"], errors="coerce")  
-df["NCP"]=np.floor(df["NCP"].astype(int))
+df["NCP"]=np.round(df["NCP"].astype(int))
 df["NCP_num"]=df["NCP"].map(ncp_map)
 order_ncp = ["One","Two", "Three", "More than three"]
 

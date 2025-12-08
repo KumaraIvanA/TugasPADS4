@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
-from scipy.stats import chi2_contingency
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 import plotly.express as px
 st.set_page_config(page_title="analisis pencegahan obesitas", layout="wide")
 st.title("dashboard visualisasi insight")
@@ -62,3 +63,19 @@ fig_heatmap.update_layout(
     yaxis_title="Jumlah Makan Utama per Hari (NCP)"
 )
 st.plotly_chart(fig_heatmap)
+st.subheader("heatmap pearson correlation NCP & CAEC")
+caec_mapping_corr = {"no": 0, "Sometimes": 1, "Frequently": 2, "Always": 3}
+df["CAEC_numeric"] = df["CAEC"].map(caec_mapping_corr)
+df_Numeric=df[["NCP", "CAEC_numeric"]]
+co_mtx=df_Numeric.corr(numeric_only=True)
+print(co_mtx)
+fig, ax=plt.subplots(figsize=(6,4))
+sns.heatmap(
+    co_mtx,
+    cmap="YlGnBu",
+    annot=True,
+    fmt=".2f",
+    vmin=-1, vmax=1,
+    ax=ax
+)
+st.pyplot(fig)
