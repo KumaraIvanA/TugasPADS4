@@ -2,12 +2,13 @@ import streamlit as st
 import pandas as pd
 from utils import ChiSquareTest, PearsonTest
 
-df = pd.read_csv("./assets/normalizedObesity.csv")
+df = pd.read_csv("./assets/dataset.csv")
 
 params: dict[str, str] = {
     "MTRANS": "Transportation used",
     "CALC": "Consumption of alcohol",
     "CAEC": "Consumption of food between meals",
+    "FCVC": "Frequency of consumption of vegetables"
 }
 
 st.subheader("Pearson test")
