@@ -21,4 +21,6 @@ class ChiSquareTest:
 class PearsonTest:
     def __init__(self, df: DataFrame) -> None:
         correlation = df.corr(method="pearson")
-        self.figure = px.imshow(correlation, text_auto=".3f")
+        self.figure = px.imshow(
+            correlation, text_auto=".3f", color_continuous_scale="RdBu_r"
+        )

@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from utils import ChiSquareTest, PearsonTest
 
-df = pd.read_csv("./assets/dataset.csv")
+df = pd.read_csv("./assets/cleanedDataset.csv")
 
 params: dict[str, str] = {
     "MTRANS": "Transportation used",
