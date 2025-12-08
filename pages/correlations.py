@@ -5,12 +5,12 @@ from utils import ChiSquareTest, PearsonTest
 df = pd.read_csv("./assets/normalizedDataset.csv")
 
 params: dict[str, str] = {
-    "FCVC": "Transportation used",
-    "NCP": "Transportation used",
+    "FCVC": "Frequency of consumption of vegetables",
+    "NCP": "Number of main meals",
     "CAEC": "Consumption of food between meals",
-    "CH2O": "Transportation used",
-    "FAF": "Transportation used",
-    "TUE": "Transportation used",
+    "CH2O": "Consumption of water daily",
+    "FAF": "Physical activity frequency",
+    "TUE": "Time using technology devices",
     "CALC": "Consumption of alcohol",
     "MTRANS": "Transportation used",
 }
