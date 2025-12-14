@@ -13,7 +13,7 @@ df["TUE"] = df["TUE"].astype(int)
 df["BMI"] = df["Weight"] / (df["Height"] ** 2)
 bins = [0, 18.5, 25, 27.5, 30, 35, 40, 100]
 labels = [0, 1, 2, 3, 4, 5, 6]
-df["BMI"] = pd.cut(df["BMI"], bins=bins, labels=labels)
+df["BMI_Category"] = pd.cut(df["BMI"], bins=bins, labels=labels)
 
 df.to_csv("./assets/cleanedDataset.csv", index=False)
 
