@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
-df=pd.read_csv("assets/normalizedObesity.csv")
+df=pd.read_csv("assets/normalizedDataset.csv")
 df_specific=df[["NCP", "FAF", "FCVC", "CH2O", "TUE", "Gender", "CALC","MTRANS","BMI"]]
 # correlation matrix
 corr_mtx=df_specific.corr(method="pearson")
